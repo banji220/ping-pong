@@ -43,6 +43,12 @@ while True:
     if ball.left <= 0 or ball.right >= screen_width:
         ball_speed_x *= -1
         
+        
+    # Ball Collisions to the Player and opponent
+    if ball.colliderect(player) or ball.colliderect(opponent):
+        ball_speed_x *= -1
+    
+    
     # Visuals
     screen.fill(background_color)
     pygame.draw.rect(screen, light_grey, player)
